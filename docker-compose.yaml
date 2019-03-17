@@ -1,0 +1,15 @@
+version: "2.0"
+
+services:
+  external-envoy:
+    build:
+      context: .
+      dockerfile: Dockerfile-external-envoy
+    volumes:
+      - ./baseline.yaml:/etc/external-envoy.yaml
+    expose:
+      - "80"
+      - "8001"
+    ports:
+      - "80:80"
+      - "8001:8001"
